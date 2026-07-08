@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contrat d'Engagement — Apéro Divinatoire Spécial Célibataires — Juillet 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bai+Jamjuree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0e2340;
+      --card:    #162e52;
+      --card2:   #1a3560;
+      --bleu:    #2563a8;
+      --ciel:    #5b9bd5;
+      --or:      #d4a843;
+      --fuchsia: #E91E8C;
+      --blanc:   #ffffff;
+      --texte:   #e8f0fb;
+      --subtil:  #a8c4e0;
+      --border:  #2a4a78;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Bai Jamjuree', sans-serif; background: var(--bg); color: var(--texte); min-height: 100vh; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(170deg, #061524 0%, #0e2340 50%, #142d50 100%);
+      text-align: center; padding: 56px 24px 44px;
+      position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse at 20% 70%, rgba(91,155,213,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(37,99,168,0.15) 0%, transparent 55%);
+      pointer-events:none;
+    }
+    .stars { position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;pointer-events:none; }
+    .stars span { position:absolute;display:block;background:#fff;border-radius:50%;animation:twinkle 3s infinite ease-in-out; }
+    .stars span:nth-child(1){width:2px;height:2px;top:8%;left:12%;animation-delay:0s}
+    .stars span:nth-child(2){width:2px;height:2px;top:15%;left:78%;animation-delay:0.5s}
+    .stars span:nth-child(3){width:1px;height:1px;top:22%;left:44%;animation-delay:1.1s}
+    .stars span:nth-child(4){width:2px;height:2px;top:6%;left:60%;animation-delay:0.8s}
+    .stars span:nth-child(5){width:1px;height:1px;top:30%;left:88%;animation-delay:1.6s}
+    .stars span:nth-child(6){width:2px;height:2px;top:12%;left:30%;animation-delay:2.0s}
+    .stars span:nth-child(7){width:3px;height:3px;top:20%;left:5%;animation-delay:0.3s;opacity:0.3}
+    .stars span:nth-child(8){width:2px;height:2px;top:18%;left:92%;animation-delay:1.9s}
+    @keyframes twinkle{0%,100%{opacity:0.25}50%{opacity:1}}
+
+    .hero-eyebrow { font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--or);margin-bottom:18px;position:relative; }
+    .hero h1 { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5.5vw,48px);font-weight:300;color:var(--blanc);line-height:1.15;margin-bottom:10px;position:relative; }
+    .hero h1 em { font-style:italic;color:var(--fuchsia); }
+    .hero-sub { font-size:12px;color:var(--blanc);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;position:relative; }
+    .hero-dates { display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;position:relative; }
+    .hero-date-card { background:rgba(255,255,255,0.07);border:1px solid rgba(91,155,213,0.35);border-radius:12px;padding:12px 20px;font-size:13px;color:var(--blanc);line-height:1.7;text-align:left; }
+    .hero-date-card strong { color:var(--or);display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px; }
+    .btn-hero { display:inline-block;background:transparent;border:1.5px solid var(--ciel);color:var(--blanc);padding:12px 30px;border-radius:100px;font-family:'Bai Jamjuree',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.2s,color 0.2s;position:relative; }
+    .btn-hero:hover { background:var(--ciel);color:#0e2340; }
+
+    .salon-strip { background:#122a4a;border-bottom:1px solid var(--border);padding:12px 24px;text-align:center;font-size:12px;color:var(--blanc); }
+
+    /* STEPPER */
+    .stepper { display:flex;border-bottom:2px solid var(--border);background:#0e2340;position:sticky;top:0;z-index:100; }
+    .step-tab { flex:1;padding:16px 8px;text-align:center;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blanc);border-bottom:3px solid transparent;margin-bottom:-2px;transition:color 0.2s,border-color 0.2s;cursor:default;user-select:none; }
+    .step-tab.active { color:var(--blanc);border-bottom-color:var(--ciel); }
+    .step-tab.done   { color:var(--ciel); }
+
+    /* PANELS */
+    .panel { display:none;max-width:760px;margin:0 auto;padding:40px 24px 60px; }
+    .panel.active { display:block;animation:fadeUp 0.3s ease both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    .panel-title { font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,34px);font-weight:300;color:var(--blanc);margin-bottom:8px; }
+    .panel-title em { font-style:italic;color:var(--ciel); }
+    .panel-hint { font-size:13px;color:var(--blanc);margin-bottom:32px; }
+
+    /* PHOTO NOTICE */
+    .photo-notice { background:linear-gradient(135deg,rgba(37,99,168,0.25),rgba(91,155,213,0.15));border:1.5px solid var(--ciel);border-radius:12px;padding:18px 22px;margin-bottom:28px;display:flex;gap:14px;align-items:flex-start; }
+    .photo-notice-icon { font-size:22px;line-height:1;flex-shrink:0;margin-top:2px; }
+    .photo-notice-title { font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:6px; }
+    .photo-notice-body { font-size:13px;color:var(--texte);line-height:1.7; }
+    .photo-notice-body strong { color:var(--blanc); }
+    .photo-notice-body a { color:var(--ciel);text-decoration:none; }
+    .photo-notice-body a:hover { text-decoration:underline; }
+
+    /* FORM */
+    .field-group { margin-bottom:20px; }
+    .field-label { display:block;font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--blanc);margin-bottom:8px; }
+    .field-required { color:var(--fuchsia);margin-left:2px; }
+    .f-input,.f-textarea { width:100%;background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:13px 16px;font-family:'Bai Jamjuree',sans-serif;font-size:14px;color:var(--blanc);outline:none;transition:border-color 0.2s,background 0.2s;appearance:none; }
+    .f-input::placeholder,.f-textarea::placeholder { color:#4a6a90; }
+    .f-input:focus,.f-textarea:focus { border-color:var(--ciel);background:var(--card2); }
+    .f-textarea { resize:vertical;min-height:90px; }
+    .field-grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+    @media(max-width:520px){ .field-grid-2{grid-template-columns:1fr;} }
+    .field-error { font-size:12px;color:#ff8fb3;margin-top:6px;display:none; }
+    .has-error .f-input,.has-error .f-textarea { border-color:#ff8fb3; }
+
+    /* FORMULE CHECKBOXES */
+    .formule-section-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;font-weight:400;color:var(--blanc);
+      margin-bottom:6px;
+    }
+    .formule-section-hint { font-size:12px;color:var(--subtil);margin-bottom:18px; }
+
+    .check-formule-wrap { margin-bottom:12px; }
+    .check-formule { display:none; }
+    .check-formule-label {
+      display:flex;align-items:center;justify-content:space-between;
+      background:var(--card);border:1.5px solid var(--border);
+      border-radius:14px;padding:18px 22px;cursor:pointer;gap:16px;
+      transition:border-color 0.2s,background 0.2s;
+    }
+    .check-formule:checked + .check-formule-label {
+      background:#1e3f6e;border-color:var(--ciel);
+    }
+    .cfl-left { display:flex;align-items:center;gap:14px;flex:1; }
+    .cfl-box {
+      width:20px;height:20px;min-width:20px;border-radius:5px;
+      border:2px solid var(--subtil);transition:all 0.2s;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
+    }
+    .check-formule:checked + .check-formule-label .cfl-box {
+      border-color:var(--ciel);background:var(--ciel);
+    }
+    .check-formule:checked + .check-formule-label .cfl-box::after {
+      content:'✓';font-size:13px;font-weight:700;color:#0e2340;line-height:1;
+    }
+    .cfl-text {}
+    .cfl-event { font-size:14px;font-weight:600;color:var(--blanc);margin-bottom:3px; }
+    .cfl-sub { font-size:12px;color:var(--subtil); }
+    .cfl-price { font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--blanc);flex-shrink:0; }
+    .formule-tva { font-size:11px;color:var(--subtil);margin-top:4px;margin-bottom:20px; }
+
+    .field-error-formule { font-size:12px;color:#ff8fb3;margin-bottom:16px;display:none; }
+
+    .seances-block { background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:4px; }
+    .seances-block-title { font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--blanc);margin-bottom:10px; }
+    .seances-block p { font-size:13px;color:var(--texte);line-height:1.75; }
+    .seances-block p + p { margin-top:6px; }
+    .seances-block em { color:var(--blanc);font-style:italic;font-weight:600; }
+
+    .total-bar { display:flex;align-items:center;justify-content:space-between;background:var(--card2);border:1.5px solid var(--ciel);border-radius:12px;padding:16px 22px;margin-top:20px; }
+    .total-bar-label { font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blanc); }
+    .total-bar-sub { font-size:10px;color:var(--subtil);margin-top:2px; }
+    .total-bar-price { font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--blanc);transition:all 0.2s; }
+
+    /* CONTRAT */
+    .contrat-intro { background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:28px;font-size:13px;color:var(--texte);line-height:1.75; }
+    .contrat-intro strong { color:var(--blanc); }
+    .article { margin-bottom:18px; }
+    .article-title { font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blanc);margin-bottom:6px; }
+    .article-body { background:var(--card);border-left:3px solid var(--ciel);border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;color:var(--texte);line-height:1.8; }
+    .article-body strong { color:var(--blanc); }
+
+    /* SIGNATURE */
+    .sig-recap { background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:28px; }
+    .sig-recap-title { font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blanc);margin-bottom:16px; }
+    .sig-recap-row { display:flex;gap:12px;font-size:13px;padding:8px 0;border-bottom:1px solid var(--border); }
+    .sig-recap-row:last-child { border-bottom:none; }
+    .srr-label { min-width:150px;color:var(--subtil); }
+    .srr-value { color:var(--blanc);font-weight:500; }
+
+    .canvas-wrap { background:var(--card);border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px; }
+    #sigCanvas { display:block;width:100%;touch-action:none;cursor:crosshair; }
+    .canvas-hint { font-size:12px;color:var(--blanc);text-align:center;margin-bottom:16px; }
+    .btn-clear-sig { background:transparent;border:1px solid var(--border);color:var(--subtil);border-radius:8px;padding:8px 18px;font-size:12px;cursor:pointer;font-family:'Bai Jamjuree',sans-serif;transition:border-color 0.2s,color 0.2s;margin-bottom:24px; }
+    .btn-clear-sig:hover { border-color:var(--ciel);color:var(--blanc); }
+    .mention-date { font-size:12px;color:var(--blanc);margin-bottom:24px; }
+    .rgpd-block { background:var(--card);border-radius:10px;padding:14px 18px;margin-bottom:20px; }
+    .rgpd-block p { font-size:12px;color:var(--blanc);line-height:1.6;text-align:center; }
+
+    /* BOUTONS */
+    .btn-row { display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:32px; }
+    .btn-next,.btn-submit { background:var(--bleu);color:var(--blanc);border:none;border-radius:12px;padding:16px 28px;font-family:'Bai Jamjuree',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.1s; }
+    .btn-next:hover,.btn-submit:hover { background:var(--ciel);transform:translateY(-1px); }
+    .btn-next:active,.btn-submit:active { transform:translateY(0); }
+    .btn-next:disabled,.btn-submit:disabled { opacity:0.4;cursor:not-allowed; }
+    .btn-back { background:transparent;border:1.5px solid var(--border);color:var(--subtil);border-radius:12px;padding:16px 22px;font-family:'Bai Jamjuree',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:border-color 0.2s,color 0.2s; }
+    .btn-back:hover { border-color:var(--ciel);color:var(--blanc); }
+
+    /* SUCCESS */
+    #successPanel { display:none;text-align:center;max-width:560px;margin:0 auto;padding:60px 24px; }
+    .success-icon { font-size:52px;margin-bottom:22px; }
+    #successPanel h2 { font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--blanc);margin-bottom:14px; }
+    #successPanel p { font-size:14px;color:var(--blanc);line-height:1.75; }
+
+    footer { text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:11px;color:var(--blanc);line-height:1.8; }
+    footer strong { color:var(--blanc); }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="stars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="hero-eyebrow">Les Cœurs Solitaires</div>
+    <h1>Apéro Divinatoire<br><em>Spécial Célibataires</em></h1>
+    <div class="hero-sub">Tarot, oracles &amp; rencontres</div>
+    <div class="hero-dates">
+      <div class="hero-date-card">
+        <strong>Date 1</strong>
+        Mardi 28 juillet 2026 — 18h à 22h<br>
+        Domaine de la Pinède — Trégunc
+      </div>
+      <div class="hero-date-card">
+        <strong>Date 2</strong>
+        Mercredi 29 juillet 2026 — 18h30 à 22h<br>
+        Hôtel Ibis Port de Commerce — Brest
+      </div>
+    </div>
+    <button class="btn-hero" onclick="document.querySelector('.stepper').scrollIntoView({behavior:'smooth'})">
+      Contrat d'engagement
+    </button>
+  </header>
+
+  <div class="salon-strip">
+    ✦ Voir aussi : 1<sup>er</sup> Salon de la Rencontre Célibataire de Brest — 15 novembre 2026
+  </div>
+
+  <nav class="stepper" id="stepper">
+    <div class="step-tab active" id="tab-1">1. Praticien</div>
+    <div class="step-tab" id="tab-2">2. Formule</div>
+    <div class="step-tab" id="tab-3">3. Contrat</div>
+    <div class="step-tab" id="tab-4">4. Signature</div>
+  </nav>
+
+  <!-- ÉTAPE 1 — PRATICIEN -->
+  <div class="panel active" id="panel-1">
+    <h2 class="panel-title">Vos <em>informations</em></h2>
+    <p class="panel-hint">Renseignez vos coordonnées professionnelles telles qu'elles figureront sur le contrat.</p>
+
+    <div class="photo-notice">
+      <div class="photo-notice-icon">📸</div>
+      <div>
+        <div class="photo-notice-title">Photo professionnelle requise</div>
+        <div class="photo-notice-body">
+          Merci d'envoyer une photo de vous (portrait ou en situation) à <strong><a href="mailto:karantezlili@gmail.com">karantezlili@gmail.com</a></strong> après validation de votre contrat.<br>
+          Elle sera utilisée pour votre présentation sur nos supports de communication.
+        </div>
+      </div>
+    </div>
+
+    <div class="field-grid-2">
+      <div class="field-group" id="fg-nom">
+        <label class="field-label" for="f-nom">Nom <span class="field-required">*</span></label>
+        <input class="f-input" id="f-nom" type="text" placeholder="Nom de famille" />
+        <div class="field-error" id="err-nom">Nom requis.</div>
+      </div>
+      <div class="field-group" id="fg-prenom">
+        <label class="field-label" for="f-prenom">Prénom <span class="field-required">*</span></label>
+        <input class="f-input" id="f-prenom" type="text" placeholder="Prénom" />
+        <div class="field-error" id="err-prenom">Prénom requis.</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="f-activite">Nom de l'activité / Raison sociale</label>
+      <input class="f-input" id="f-activite" type="text" placeholder="Ex : Cabinet de Tarot Marie Dupont, Association XYZ…" />
+    </div>
+
+    <div class="field-group" id="fg-adresse">
+      <label class="field-label" for="f-adresse">Adresse complète <span class="field-required">*</span></label>
+      <textarea class="f-textarea" id="f-adresse" rows="3" placeholder="Numéro, rue, code postal, ville"></textarea>
+      <div class="field-error" id="err-adresse">Adresse requise.</div>
+    </div>
+
+    <div class="field-grid-2">
+      <div class="field-group" id="fg-discipline">
+        <label class="field-label" for="f-discipline">Discipline pratiquée <span class="field-required">*</span></label>
+        <input class="f-input" id="f-discipline" type="text" placeholder="Ex : Tarologue, Numérologue, Astrologue…" />
+        <div class="field-error" id="err-discipline">Discipline requise.</div>
+      </div>
+      <div class="field-group" id="fg-email">
+        <label class="field-label" for="f-email">Email <span class="field-required">*</span></label>
+        <input class="f-input" id="f-email" type="email" placeholder="votre@email.fr" />
+        <div class="field-error" id="err-email">Email valide requis.</div>
+      </div>
+    </div>
+
+    <div class="field-grid-2">
+      <div class="field-group">
+        <label class="field-label" for="f-web">Site web</label>
+        <input class="f-input" id="f-web" type="text" placeholder="www.monsite.fr" />
+      </div>
+      <div class="field-group" id="fg-siret">
+        <label class="field-label" for="f-siret">SIRET <span class="field-required">*</span></label>
+        <input class="f-input" id="f-siret" type="text" placeholder="000 000 000 00000" maxlength="17" />
+        <div class="field-error" id="err-siret">SIRET requis.</div>
+      </div>
+    </div>
+
+    <div class="field-group" id="fg-descriptif">
+      <label class="field-label" for="f-descriptif">Descriptif de votre activité <span class="field-required">*</span></label>
+      <textarea class="f-textarea" id="f-descriptif" rows="4" placeholder="Décrivez votre pratique, vos tarots ou oracles utilisés, votre approche…"></textarea>
+      <div class="field-error" id="err-descriptif">Descriptif requis.</div>
+    </div>
+
+    <div class="btn-row">
+      <span></span>
+      <button class="btn-next" onclick="goTo(2)">Suivant →</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 2 — FORMULE -->
+  <div class="panel" id="panel-2">
+    <h2 class="panel-title">Votre <em>formule</em></h2>
+    <p class="panel-hint">Choisissez une ou les deux soirées — cochez ce qui vous correspond.</p>
+
+    <div class="formule-section-title">Dates disponibles</div>
+    <div class="formule-section-hint">Stand praticien — 1 table + sièges mis à disposition. Vous apportez votre matériel.</div>
+
+    <div class="check-formule-wrap">
+      <input type="checkbox" id="ev-tregunc" class="check-formule" value="tregunc" onchange="updateTotal()" />
+      <label for="ev-tregunc" class="check-formule-label">
+        <div class="cfl-left">
+          <div class="cfl-box"></div>
+          <div class="cfl-text">
+            <div class="cfl-event">Trégunc — Domaine de la Pinède</div>
+            <div class="cfl-sub">Mardi 28 juillet 2026 — 18h à 22h</div>
+          </div>
+        </div>
+        <div class="cfl-price">39 €</div>
+      </label>
+    </div>
+
+    <div class="check-formule-wrap">
+      <input type="checkbox" id="ev-brest" class="check-formule" value="brest" onchange="updateTotal()" />
+      <label for="ev-brest" class="check-formule-label">
+        <div class="cfl-left">
+          <div class="cfl-box"></div>
+          <div class="cfl-text">
+            <div class="cfl-event">Brest — Hôtel Ibis Port de Commerce</div>
+            <div class="cfl-sub">Mercredi 29 juillet 2026 — 18h30 à 22h</div>
+          </div>
+        </div>
+        <div class="cfl-price">39 €</div>
+      </label>
+    </div>
+
+    <div class="formule-tva">TVA non applicable — art. 293B du CGI.</div>
+    <div class="field-error-formule" id="err-formule">Veuillez sélectionner au moins une date.</div>
+
+    <div class="seances-block">
+      <div class="seances-block-title">Séances flash — À la charge des visiteurs</div>
+      <p>Chaque praticien fixe librement le tarif et la durée de ses séances flash.</p>
+      <p>Les règlements sont encaissés directement par le praticien, en toute autonomie.</p>
+      <p>Les visiteurs règlent leur entrée séparément à l'organisation : <em>15 € par personne</em>, incluant une boisson de bienvenue.</p>
+    </div>
+
+    <div class="total-bar">
+      <div>
+        <div class="total-bar-label">Total à régler</div>
+        <div class="total-bar-sub">TVA non applicable — art. 293B du CGI</div>
+      </div>
+      <div class="total-bar-price" id="total-price">0 €</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(1)">← Retour</button>
+      <button class="btn-next" onclick="goTo(3)">Suivant →</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 3 — CONTRAT -->
+  <div class="panel" id="panel-3">
+    <h2 class="panel-title">Le <em>contrat</em></h2>
+    <p class="panel-hint">Lisez attentivement les conditions avant de signer.</p>
+
+    <div class="contrat-intro">
+      Entre <strong>Lili Karantez — Les Cœurs Solitaires</strong>, SIRET 40149331700069, Centre des Affaires Lorient La Base, 1 rue Étienne d'Orves, 56100 Lorient (ci-après « l'Organisatrice »), et le praticien identifié à l'étape 1 (ci-après « le Praticien »).
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 1 — Objet</div>
+      <div class="article-body" id="art1-body">Le présent contrat régit la participation du Praticien à l'événement <strong>Apéro Divinatoire Spécial Célibataires</strong>.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 2 — Modalités de participation</div>
+      <div class="article-body" id="art2-body">Le Praticien s'engage à être présent pour toute la durée de chaque soirée choisie. Il dispose d'un stand composé d'une table et de sièges fournis par l'Organisatrice. Il apporte son propre matériel (cartes, supports, décoration personnelle).</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 3 — Contribution financière</div>
+      <div class="article-body" id="art3-body">La participation au stand est fixée à <strong>39 € net par soirée</strong>, TVA non applicable (art. 293B du CGI). Le règlement est effectué par virement ou en ligne selon les modalités communiquées par l'Organisatrice. Aucun remboursement n'est possible après signature du présent contrat.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 4 — Séances flash</div>
+      <div class="article-body">Le Praticien fixe librement le tarif et la durée de ses consultations flash. Les règlements des séances sont encaissés directement par le Praticien, en toute autonomie. L'Organisatrice n'intervient pas dans cette relation commerciale.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 5 — Image et communication</div>
+      <div class="article-body">Le Praticien autorise l'Organisatrice à utiliser son nom, sa discipline et son descriptif d'activité à des fins de communication sur l'événement (réseaux sociaux, page web, supports imprimés). Le Praticien s'engage à envoyer une photo professionnelle à <strong>karantezlili@gmail.com</strong> après signature du présent contrat. Des photos pourront être prises lors de l'événement et partagées sur les supports de communication de Les Cœurs Solitaires.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 6 — Annulation</div>
+      <div class="article-body">En cas d'annulation par le Praticien moins de 15 jours avant la date de l'événement, la contribution de stand reste acquise à l'Organisatrice. En cas d'annulation de l'événement par l'Organisatrice pour cause de force majeure, le Praticien sera remboursé intégralement.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 7 — Responsabilité</div>
+      <div class="article-body">Le Praticien est seul responsable du contenu de ses consultations. L'Organisatrice ne peut être tenue responsable de litiges entre le Praticien et les visiteurs. Le Praticien veille à la sécurité de son matériel. L'Organisatrice décline toute responsabilité en cas de perte ou de vol.</div>
+    </div>
+
+    <div class="article">
+      <div class="article-title">Article 8 — Données personnelles</div>
+      <div class="article-body">Les données collectées dans ce formulaire sont utilisées exclusivement dans le cadre de l'organisation de l'événement. Elles ne seront jamais vendues, jamais partagées avec des tiers. Conformément au RGPD, le Praticien dispose d'un droit d'accès, de rectification et de suppression en contactant karantezlili@gmail.com.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(2)">← Retour</button>
+      <button class="btn-next" onclick="goTo(4)">J'ai lu et j'accepte →</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 4 — SIGNATURE -->
+  <div class="panel" id="panel-4">
+    <h2 class="panel-title">Votre <em>signature</em></h2>
+    <p class="panel-hint">Vérifiez le récapitulatif puis signez dans le cadre ci-dessous.</p>
+
+    <div class="sig-recap">
+      <div class="sig-recap-title">Récapitulatif</div>
+      <div class="sig-recap-row"><span class="srr-label">Événement</span><span class="srr-value">Apéro Divinatoire Spécial Célibataires</span></div>
+      <div class="sig-recap-row"><span class="srr-label">Date(s)</span><span class="srr-value" id="recap-dates">—</span></div>
+      <div class="sig-recap-row"><span class="srr-label">Praticien</span><span class="srr-value" id="recap-nom">—</span></div>
+      <div class="sig-recap-row"><span class="srr-label">Discipline</span><span class="srr-value" id="recap-discipline">—</span></div>
+      <div class="sig-recap-row"><span class="srr-label">Formule</span><span class="srr-value" id="recap-formule">—</span></div>
+      <div class="sig-recap-row"><span class="srr-label">Total</span><span class="srr-value" id="recap-total">—</span></div>
+    </div>
+
+    <label class="field-label">Signature <span class="field-required">*</span></label>
+    <div class="canvas-wrap">
+      <canvas id="sigCanvas" height="160"></canvas>
+    </div>
+    <div class="canvas-hint">Dessinez votre signature avec la souris ou le doigt.</div>
+    <button class="btn-clear-sig" id="clearSig">Effacer la signature</button>
+    <div class="field-error" id="err-sig" style="margin-top:-12px;margin-bottom:16px;">Signature requise.</div>
+
+    <div class="mention-date" id="sig-date"></div>
+
+    <div class="rgpd-block">
+      <p>Vos données nous sont confiées. Elles ne seront jamais vendues, jamais partagées.<br>
+      📸 N'oubliez pas d'envoyer votre photo à <strong>karantezlili@gmail.com</strong></p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(3)">← Retour</button>
+      <button class="btn-submit" id="submitBtn">Signer et envoyer</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div id="successPanel">
+    <div class="success-icon">🌊</div>
+    <h2>Votre contrat est enregistré.</h2>
+    <p id="success-msg">Merci de votre engagement.<br>Lili vous contactera très prochainement pour confirmer votre place et les détails pratiques.<br><br>📸 Pensez à envoyer votre photo à <strong>karantezlili@gmail.com</strong></p>
+  </div>
+
+  <footer>
+    <strong>Les Cœurs Solitaires</strong> — Lili Karantez<br>
+    SIRET 40149331700069 — karantezlili@gmail.com<br>
+    Centre des Affaires Lorient La Base, 1 rue Étienne d'Orves, 56100 Lorient<br>
+    © 2026 Lili Karantez — Toute reproduction interdite, même partielle.
+  </footer>
+
+  <script>
+    const EV = {
+      tregunc: { label: 'Trégunc — Domaine de la Pinède', date: 'Mardi 28 juillet 2026 — 18h à 22h', lieu: 'Domaine de la Pinède, Trégunc' },
+      brest:   { label: 'Brest — Hôtel Ibis Port de Commerce', date: 'Mercredi 29 juillet 2026 — 18h30 à 22h', lieu: 'Hôtel Ibis Port de Commerce, Brest' }
+    };
+
+    function getChecked() {
+      return ['tregunc','brest'].filter(k => document.getElementById('ev-'+k).checked);
+    }
+
+    function updateTotal() {
+      const n = getChecked().length;
+      document.getElementById('total-price').textContent = (n * 39) + ' €';
+    }
+
+    function buildContractText() {
+      const keys = getChecked();
+      if (keys.length === 0) return '';
+      if (keys.length === 1) {
+        const ev = EV[keys[0]];
+        return 'organisé le <strong>' + ev.date + '</strong> au <strong>' + ev.lieu + '</strong>.';
+      }
+      return 'organisé sur deux soirées :<br>— <strong>' + EV.tregunc.date + '</strong> au <strong>' + EV.tregunc.lieu + '</strong><br>— <strong>' + EV.brest.date + '</strong> à l\'<strong>' + EV.brest.lieu + '</strong>.';
+    }
+
+    let currentStep = 1;
+
+    function goTo(step) {
+      if (step > currentStep && !validateStep(currentStep)) return;
+
+      if (step === 3) {
+        // Mettre à jour les articles dynamiques
+        const keys = getChecked();
+        const contratText = buildContractText();
+        document.getElementById('art1-body').innerHTML =
+          'Le présent contrat régit la participation du Praticien à l\'événement <strong>Apéro Divinatoire Spécial Célibataires</strong>, ' + contratText;
+
+        const heures = keys.length === 2
+          ? 'la durée de chaque soirée (18h à 22h pour Trégunc, 18h30 à 22h pour Brest)'
+          : keys[0] === 'tregunc' ? 'la durée de la soirée, de <strong>18h à 22h</strong>'
+          : 'la durée de la soirée, de <strong>18h30 à 22h</strong>';
+        document.getElementById('art2-body').innerHTML =
+          'Le Praticien s\'engage à être présent pendant ' + heures + '. Il dispose d\'un stand composé d\'une table et de sièges fournis par l\'Organisatrice. Il apporte son propre matériel (cartes, supports, décoration personnelle).';
+
+        const total = keys.length * 39;
+        const montantLabel = keys.length === 2 ? '<strong>' + total + ' € net</strong> (39 € × 2 soirées)' : '<strong>39 € net</strong>';
+        document.getElementById('art3-body').innerHTML =
+          'La participation au stand est fixée à ' + montantLabel + ', TVA non applicable (art. 293B du CGI). Le règlement est effectué par virement ou en ligne selon les modalités communiquées par l\'Organisatrice. Aucun remboursement n\'est possible après signature du présent contrat.';
+      }
+
+      if (step === 4) {
+        const keys = getChecked();
+        const datesLines = keys.map(k => EV[k].date + ' · ' + EV[k].lieu).join('\n');
+        document.getElementById('recap-dates').innerHTML = keys.map(k => EV[k].date + '<br><em style="font-size:11px;color:var(--subtil)">' + EV[k].lieu + '</em>').join('<br>');
+        document.getElementById('recap-nom').textContent =
+          (document.getElementById('f-prenom').value.trim() + ' ' + document.getElementById('f-nom').value.trim()).trim() || '—';
+        document.getElementById('recap-discipline').textContent =
+          document.getElementById('f-discipline').value.trim() || '—';
+        document.getElementById('recap-formule').textContent = keys.length === 2 ? 'Stand praticien — 2 soirées' : 'Stand praticien — 1 soirée';
+        document.getElementById('recap-total').textContent = (keys.length * 39) + ' €';
+        document.getElementById('sig-date').textContent =
+          'Fait le ' + new Date().toLocaleDateString('fr-FR', {day:'2-digit',month:'long',year:'numeric'});
+      }
+
+      document.getElementById('panel-' + currentStep).classList.remove('active');
+      document.getElementById('tab-' + currentStep).classList.remove('active');
+      document.getElementById('tab-' + currentStep).classList.add('done');
+      currentStep = step;
+      document.getElementById('panel-' + step).classList.add('active');
+      document.getElementById('tab-' + step).classList.add('active');
+      document.getElementById('tab-' + step).classList.remove('done');
+      document.querySelector('.stepper').scrollIntoView({behavior:'smooth', block:'start'});
+      if (step === 4) resizeCanvas();
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.field-error').forEach(e => e.style.display = 'none');
+      document.querySelectorAll('.has-error').forEach(e => e.classList.remove('has-error'));
+      document.getElementById('err-formule').style.display = 'none';
+    }
+    function showError(fgId, errId) {
+      const fg = document.getElementById('fg-' + fgId);
+      if (fg) fg.classList.add('has-error');
+      const err = document.getElementById('err-' + errId);
+      if (err) err.style.display = 'block';
+    }
+    function validateStep(step) {
+      clearErrors(); let valid = true;
+      if (step === 1) {
+        if (!document.getElementById('f-nom').value.trim())       { showError('nom','nom'); valid = false; }
+        if (!document.getElementById('f-prenom').value.trim())    { showError('prenom','prenom'); valid = false; }
+        if (!document.getElementById('f-adresse').value.trim())   { showError('adresse','adresse'); valid = false; }
+        if (!document.getElementById('f-discipline').value.trim()){ showError('discipline','discipline'); valid = false; }
+        const email = document.getElementById('f-email').value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email','email'); valid = false; }
+        if (!document.getElementById('f-siret').value.trim())     { showError('siret','siret'); valid = false; }
+        if (!document.getElementById('f-descriptif').value.trim()){ showError('descriptif','descriptif'); valid = false; }
+      }
+      if (step === 2) {
+        if (getChecked().length === 0) {
+          document.getElementById('err-formule').style.display = 'block';
+          valid = false;
+        }
+      }
+      return valid;
+    }
+
+    // Canvas signature
+    const canvas = document.getElementById('sigCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false, hasSig = false;
+    function resizeCanvas() {
+      const w = canvas.parentElement.offsetWidth;
+      canvas.width = w; canvas.height = 160;
+      ctx.strokeStyle = '#5b9bd5'; ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    function getPos(e) {
+      const r = canvas.getBoundingClientRect();
+      const sx = canvas.width / r.width, sy = canvas.height / r.height;
+      if (e.touches) return { x:(e.touches[0].clientX-r.left)*sx, y:(e.touches[0].clientY-r.top)*sy };
+      return { x:(e.clientX-r.left)*sx, y:(e.clientY-r.top)*sy };
+    }
+    canvas.addEventListener('mousedown', e => { drawing=true; const p=getPos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); });
+    canvas.addEventListener('mousemove', e => { if(!drawing)return; hasSig=true; const p=getPos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); });
+    canvas.addEventListener('mouseup', () => drawing=false);
+    canvas.addEventListener('mouseleave', () => drawing=false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; const p=getPos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); }, {passive:false});
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing)return; hasSig=true; const p=getPos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); }, {passive:false});
+    canvas.addEventListener('touchend', () => drawing=false);
+    document.getElementById('clearSig').addEventListener('click', () => { ctx.clearRect(0,0,canvas.width,canvas.height); hasSig=false; });
+
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+      if (!hasSig) { document.getElementById('err-sig').style.display='block'; return; }
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Envoi en cours…';
+
+      const keys = getChecked();
+      const datesLabel = keys.map(k => EV[k].date + ' — ' + EV[k].lieu).join(' | ');
+      const totalEur = keys.length * 39;
+      const prenom = document.getElementById('f-prenom').value.trim();
+      const nom = document.getElementById('f-nom').value.trim();
+
+      const fd = new FormData();
+      fd.append('access_key', 'd42b8d9d-a52c-4888-a489-5dd59b1b0f5b');
+      fd.append('subject', 'Contrat Praticien — Apéro Divinatoire Juillet 2026 (' + keys.map(k=>EV[k].label.split(' — ')[0]).join(' + ') + ') — ' + prenom + ' ' + nom);
+      fd.append('evenement', 'Apéro Divinatoire Spécial Célibataires — ' + datesLabel);
+      fd.append('dates', datesLabel);
+      fd.append('total', totalEur + ' €');
+      fd.append('nom', nom);
+      fd.append('prenom', prenom);
+      fd.append('activite', document.getElementById('f-activite').value.trim());
+      fd.append('adresse', document.getElementById('f-adresse').value.trim());
+      fd.append('discipline', document.getElementById('f-discipline').value.trim());
+      fd.append('email', document.getElementById('f-email').value.trim());
+      fd.append('web', document.getElementById('f-web').value.trim());
+      fd.append('siret', document.getElementById('f-siret').value.trim());
+      fd.append('descriptif', document.getElementById('f-descriptif').value.trim());
+      fd.append('formule', 'Stand praticien — ' + keys.length + ' soirée(s) — ' + totalEur + ' €');
+      fd.append('signature_png', canvas.toDataURL('image/png'));
+      fd.append('date_signature', new Date().toLocaleDateString('fr-FR'));
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body:fd, headers:{'Accept':'application/json'}});
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('stepper').style.display = 'none';
+          document.getElementById('panel-4').style.display = 'none';
+          document.getElementById('successPanel').style.display = 'block';
+          const villes = keys.map(k => k === 'tregunc' ? 'Trégunc' : 'Brest').join(' et ');
+          document.getElementById('success-msg').innerHTML =
+            'Merci de votre engagement pour ' + (keys.length===2 ? 'les deux soirées' : 'la soirée') + ' de <strong>' + villes + '</strong>.<br>' +
+            'Lili vous contactera très prochainement pour confirmer votre place et les détails pratiques.<br><br>' +
+            '📸 Pensez à envoyer votre photo à <strong>karantezlili@gmail.com</strong>';
+        } else {
+          btn.disabled=false; btn.textContent='Signer et envoyer';
+          alert('Une erreur est survenue. Merci de réessayer ou de contacter karantezlili@gmail.com');
+        }
+      } catch {
+        btn.disabled=false; btn.textContent='Signer et envoyer';
+        alert('Problème de connexion. Merci de réessayer.');
+      }
+    });
+  </script>
+</body>
+</html>
